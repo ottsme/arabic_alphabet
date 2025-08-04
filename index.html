@@ -5,17 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arabic Alphabet Learning Tool</title>
     
-    <!-- Simple favicon approach for Samsung Internet -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23228B22'/%3E%3Ctext x='32' y='42' fill='white' font-family='Arial' font-size='32' font-weight='bold' text-anchor='middle'%3E%D8%A7%3C/text%3E%3C/svg%3E">
+    <!-- Simplified favicon for better compatibility -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23228B22'/%3E%3Ctext x='50' y='70' font-family='Arial' font-size='60' font-weight='bold' text-anchor='middle' fill='white'%3E%D8%A7%3C/text%3E%3C/svg%3E">
     
-    <!-- Apple Touch Icons for iOS -->
-    <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='36' fill='%23228B22'/%3E%3Ctext x='90' y='115' fill='white' font-family='Arial' font-size='90' font-weight='bold' text-anchor='middle'%3E%D8%A7%3C/text%3E%3C/svg%3E">
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%23228B22'/%3E%3Ctext x='90' y='130' font-family='Arial' font-size='100' font-weight='bold' text-anchor='middle' fill='white'%3E%D8%A7%3C/text%3E%3C/svg%3E">
     
-    <!-- Android Chrome Icons -->
-    <link rel="icon" type="image/png" sizes="192x192" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='38' fill='%23228B22'/%3E%3Ctext x='96' y='125' fill='white' font-family='Arial' font-size='96' font-weight='bold' text-anchor='middle'%3E%D8%A7%3C/text%3E%3C/svg%3E">
-    
-    <!-- Web App Manifest for PWA features -->
-    <link rel="manifest" href="data:application/json;charset=utf-8,%7B%22name%22%3A%22Arabic%20Alphabet%20Learning%20Tool%22%2C%22short_name%22%3A%22Arabic%20Alphabet%22%2C%22description%22%3A%22Learn%20Arabic%20alphabet%20with%20audio%20pronunciation%22%2C%22start_url%22%3A%22./%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23228B22%22%2C%22theme_color%22%3A%22%23228B22%22%2C%22orientation%22%3A%22portrait%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage/svg%2Bxml%2C%253Csvg%2520xmlns%253D%2527http%253A//www.w3.org/2000/svg%2527%2520width%253D%2527192%2527%2520height%253D%2527192%2527%2520viewBox%253D%25270%25200%2520192%2520192%2527%253E%253Crect%2520width%253D%2527192%2527%2520height%253D%2527192%2527%2520rx%253D%252738%2527%2520fill%253D%2527%252523228B22%2527/%253E%253Ctext%2520x%253D%252796%2527%2520y%253D%2527125%2527%2520fill%253D%2527white%2527%2520font-family%253D%2527Arial%2527%2520font-size%253D%252796%2527%2520font-weight%253D%2527bold%2527%2520text-anchor%253D%2527middle%2527%253E%2525D8%2525A7%253C/text%253E%253C/svg%253E%22%2C%22sizes%22%3A%22192x192%22%2C%22type%22%3A%22image/svg%2Bxml%22%7D%5D%7D">
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="data:application/json,%7B%22name%22%3A%22Arabic%20Alphabet%22%2C%22short_name%22%3A%22Arabic%22%2C%22start_url%22%3A%22./%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23228B22%22%2C%22theme_color%22%3A%22%23228B22%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage/svg%2Bxml%2C%253Csvg%2520xmlns%253D'http%253A//www.w3.org/2000/svg'%2520viewBox%253D'0%25200%2520192%2520192'%253E%253Crect%2520width%253D'192'%2520height%253D'192'%2520rx%253D'40'%2520fill%253D'%252523228B22'/%253E%253Ctext%2520x%253D'96'%2520y%253D'140'%2520font-family%253D'Arial'%2520font-size%253D'120'%2520font-weight%253D'bold'%2520text-anchor%253D'middle'%2520fill%253D'white'%253E%25D8%25A7%253C/text%253E%253C/svg%253E%22%2C%22sizes%22%3A%22192x192%22%2C%22type%22%3A%22image/svg%2Bxml%22%7D%5D%7D">
 
     <style>
         body {
@@ -51,10 +48,10 @@
         
         .alphabet-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
             margin-bottom: 30px;
-            direction: rtl; /* Right-to-left layout for Arabic */
+            direction: rtl;
         }
         
         .letter-card {
@@ -66,12 +63,14 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            direction: ltr; /* Reset direction for card content */
+            direction: ltr;
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
             -webkit-touch-callout: none;
+            position: relative;
+            overflow: hidden;
         }
         
         .letter-card:hover {
@@ -86,11 +85,18 @@
             border-color: #9e0303;
         }
         
+        .letter-card.expanded {
+            grid-column: span 2;
+            min-height: 180px;
+            z-index: 10;
+        }
+        
         .arabic-letter {
-            font-size: 3em;
+            font-size: 2.5em;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             font-family: 'Times New Roman', serif;
+            line-height: 1;
         }
         
         .letter-name {
@@ -108,10 +114,68 @@
             font-size: 0.9em;
             color: #666;
             font-style: italic;
+            margin-bottom: 5px;
         }
         
         .letter-card.active .transliteration {
             color: #f0f0f0;
+        }
+        
+        .forms-container {
+            display: none;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .letter-card.expanded .forms-container {
+            display: block;
+        }
+        
+        .forms-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .form-item {
+            text-align: center;
+            padding: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 5px;
+        }
+        
+        .letter-card.active .form-item {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .form-arabic {
+            font-size: 1.8em;
+            font-family: 'Times New Roman', serif;
+            margin-bottom: 3px;
+            color: inherit;
+        }
+        
+        .form-label {
+            font-size: 0.7em;
+            opacity: 0.8;
+            font-weight: bold;
+        }
+        
+        .audio-btn {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: inherit;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .audio-btn:hover {
+            background: rgba(255,255,255,0.3);
         }
         
         .controls {
@@ -135,22 +199,7 @@
             background: #7a0202;
         }
         
-        .info-panel {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 20px;
-            border-left: 4px solid #9e0303;
-        }
-        
-        .current-letter-display {
-            text-align: center;
-            font-size: 4em;
-            margin: 20px 0;
-            font-family: 'Times New Roman', serif;
-        }
-        
-        /* Mobile optimizations - Galaxy S25 Plus focused */
+        /* Mobile optimizations */
         @media (max-width: 768px) {
             body {
                 padding: 10px;
@@ -165,78 +214,55 @@
             h1 {
                 font-size: 2.2em;
                 margin-bottom: 25px;
-                text-align: center;
             }
             
             .alphabet-grid {
-                grid-template-columns: repeat(5, 1fr);
-                gap: 10px;
-                max-width: 100%;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px;
             }
             
             .letter-card {
-                padding: 16px 8px;
+                padding: 12px 8px;
                 border-radius: 15px;
-                min-height: 110px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
+                min-height: 100px;
+            }
+            
+            .letter-card.expanded {
+                grid-column: span 3;
+                min-height: 200px;
             }
             
             .arabic-letter {
-                font-size: 2.8em;
+                font-size: 2.2em;
                 margin-bottom: 5px;
-                line-height: 1;
             }
             
             .letter-name {
                 font-size: 0.95em;
-                font-weight: bold;
                 margin-bottom: 3px;
-                white-space: nowrap;
             }
             
             .transliteration {
                 font-size: 0.85em;
-                line-height: 1;
             }
             
-            .controls {
-                margin-bottom: 20px;
-                display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
+            .forms-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+            
+            .form-arabic {
+                font-size: 1.5em;
             }
             
             .control-btn {
                 padding: 12px 18px;
                 margin: 5px;
                 font-size: 0.95em;
-                border-radius: 20px;
                 min-width: 120px;
-                touch-action: manipulation;
-            }
-            
-            .current-letter-display {
-                font-size: 4em;
-                margin: 20px 0;
-                line-height: 1;
-            }
-            
-            .info-panel {
-                padding: 20px;
-                margin-top: 20px;
-                border-radius: 15px;
-            }
-            
-            .info-panel h3 {
-                margin-top: 0;
-                color: #9e0303;
             }
         }
         
-        /* Galaxy S25 Plus specific (411px width in portrait) */
         @media (max-width: 450px) {
             .container {
                 padding: 15px;
@@ -250,17 +276,22 @@
             }
             
             .alphabet-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 8px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
             }
             
             .letter-card {
-                padding: 14px 6px;
-                min-height: 100px;
+                padding: 10px 6px;
+                min-height: 90px;
+            }
+            
+            .letter-card.expanded {
+                grid-column: span 2;
+                min-height: 180px;
             }
             
             .arabic-letter {
-                font-size: 2.5em;
+                font-size: 2em;
             }
             
             .letter-name {
@@ -269,16 +300,6 @@
             
             .transliteration {
                 font-size: 0.8em;
-            }
-            
-            .control-btn {
-                padding: 10px 15px;
-                font-size: 0.9em;
-                min-width: 100px;
-            }
-            
-            .current-letter-display {
-                font-size: 3.5em;
             }
         }
         
@@ -290,15 +311,6 @@
                 padding-left: env(safe-area-inset-left);
                 padding-right: env(safe-area-inset-right);
             }
-            
-            .container {
-                margin-top: 0;
-            }
-        }
-        
-        /* Prevent zoom on input focus (mobile) */
-        input, button, select, textarea {
-            font-size: 16px;
         }
         
         /* Touch improvements for mobile */
@@ -308,12 +320,7 @@
             }
             
             .letter-card:active {
-                transform: scale(0.95);
-                background-color: #f0f0f0;
-            }
-            
-            .letter-card.active:active {
-                background-color: #7a0202;
+                transform: scale(0.98);
             }
             
             .control-btn:active {
@@ -345,7 +352,7 @@
         <h1>🕌 Arabic Alphabet Learning Tool</h1>
         
         <div class="controls">
-            <button class="control-btn" id="playAllBtn" onclick="togglePlayAll()">▶️ Play All</button>
+            <button class="control-btn" onclick="collapseAll()">📋 Collapse All</button>
             <button class="control-btn" onclick="shuffleOrder()">🔀 Random Order</button>
             <button class="control-btn" onclick="resetOrder()">↩️ Reset Order</button>
         </div>
@@ -357,256 +364,177 @@
 
     <script>
         const arabicLetters = [
-            {letter: 'ا', name: 'Alif', transliteration: 'ā', sound: 'alif'},
-            {letter: 'ب', name: 'Bāʾ', transliteration: 'b', sound: 'baa'},
-            {letter: 'ت', name: 'Tāʾ', transliteration: 't', sound: 'taa'},
-            {letter: 'ث', name: 'Thāʾ', transliteration: 'th', sound: 'thaa'},
-            {letter: 'ج', name: 'Jīm', transliteration: 'j', sound: 'jeem'},
-            {letter: 'ح', name: 'Ḥāʾ', transliteration: 'ḥ', sound: 'haa'},
-            {letter: 'خ', name: 'Khāʾ', transliteration: 'kh', sound: 'khaa'},
-            {letter: 'د', name: 'Dāl', transliteration: 'd', sound: 'dal'},
-            {letter: 'ذ', name: 'Dhāl', transliteration: 'dh', sound: 'thal'},
-            {letter: 'ر', name: 'Rāʾ', transliteration: 'r', sound: 'raa'},
-            {letter: 'ز', name: 'Zayn', transliteration: 'z', sound: 'zayn'},
-            {letter: 'س', name: 'Sīn', transliteration: 's', sound: 'seen'},
-            {letter: 'ش', name: 'Shīn', transliteration: 'sh', sound: 'sheen'},
-            {letter: 'ص', name: 'Ṣād', transliteration: 'ṣ', sound: 'saad'},
-            {letter: 'ض', name: 'Ḍād', transliteration: 'ḍ', sound: 'daad'},
-            {letter: 'ط', name: 'Ṭāʾ', transliteration: 'ṭ', sound: 'taa_emphatic'},
-            {letter: 'ظ', name: 'Ẓāʾ', transliteration: 'ẓ', sound: 'zaa'},
-            {letter: 'ع', name: 'ʿAyn', transliteration: 'ʿ', sound: 'ayn'},
-            {letter: 'غ', name: 'Ghayn', transliteration: 'gh', sound: 'ghayn'},
-            {letter: 'ف', name: 'Fāʾ', transliteration: 'f', sound: 'faa'},
-            {letter: 'ق', name: 'Qāf', transliteration: 'q', sound: 'qaaf'},
-            {letter: 'ك', name: 'Kāf', transliteration: 'k', sound: 'kaaf'},
-            {letter: 'ل', name: 'Lām', transliteration: 'l', sound: 'laam'},
-            {letter: 'م', name: 'Mīm', transliteration: 'm', sound: 'meem'},
-            {letter: 'ن', name: 'Nūn', transliteration: 'n', sound: 'noon'},
-            {letter: 'ه', name: 'Hāʾ', transliteration: 'h', sound: 'haa_final'},
-            {letter: 'و', name: 'Wāw', transliteration: 'w/ū', sound: 'waaw'},
-            {letter: 'ي', name: 'Yāʾ', transliteration: 'y/ī', sound: 'yaa'}
+            {
+                letter: 'ا', name: 'Alif', transliteration: 'ā', sound: 'alif',
+                forms: { isolated: 'ا', initial: 'ا', middle: 'ـا', final: 'ـا' },
+                connects: { initial: false, final: true }
+            },
+            {
+                letter: 'ب', name: 'Bāʾ', transliteration: 'b', sound: 'baa',
+                forms: { isolated: 'ب', initial: 'بـ', middle: 'ـبـ', final: 'ـب' },
+                connects: { initial: true, final: true }
+            },
+            {
+                letter: 'ت', name: 'Tāʾ', transliteration: 't', sound: 'taa',
+                forms: { isolated: 'ت', initial: 'تـ', middle: 'ـتـ', final: 'ـت' },
+                connects: { initial: true, final: true }
+            },
+            {
+                letter: 'ث', name: 'Thāʾ', transliteration: 'th', sound: 'thaa',
+                forms: { isolated: 'ث', initial: 'ثـ', middle: 'ـثـ', final: 'ـث' },
+                connects: { initial: true, final: true }
+            },
+            {
+                letter: 'ج', name: 'Jīm', transliteration: 'j', sound: 'jeem',
+                forms: { isolated: 'ج', initial: 'جـ', middle: 'ـجـ', final: 'ـج' },
+                connects: { initial: true, final: true }
+            },
+            {
+                letter: 'ح', name: 'Ḥāʾ', transliteration: 'ḥ', sound: 'haa',
+                forms: { isolated: 'ح', initial: 'حـ', middle: 'ـحـ', final: 'ـح' },
+                connects: { initial: true, final: true }
+            },
+            {
+                letter: 'خ', name: 'Khāʾ', transliteration: 'kh', sound: 'khaa',
+                forms: { isolated: 'خ', initial: 'خـ', middle: 'ـخـ', final: 'ـخ' },
+                connects: { initial: true, final: true }
+            },
+            {
+                letter: 'د', name: 'Dāl', transliteration: 'd', sound: 'dal',
+                forms: { isolated: 'د', initial: 'د', middle: 'ـد', final: 'ـد' },
+                connects: { initial: false, final: true }
+            },
+            {
+                letter: 'ذ', name: 'Dhāl', transliteration: 'dh', sound: 'thal',
+                forms: { isolated: 'ذ', initial: 'ذ', middle: 'ـذ', final: 'ـذ' },
+                connects: { initial: false, final: true }
+            },
+            {
+                letter: 'ر', name: 'Rāʾ', transliteration: 'r', sound: 'raa',
+                forms: { isolated: 'ر', initial: 'ر', middle: 'ـر', final: 'ـر' },
+                connects: { initial: false, final: true }
+            },
+            {
+                letter: 'ز', name: 'Zayn', transliteration: 'z', sound: 'zayn',
+                forms: { isolated: 'ز', initial: 'ز', middle: 'ـز', final: 'ـز' },
+                connects: { initial: false, final: true }
+            },
+            {
+                letter: 'س', name: 'Sīn', transliteration: 's', sound: 'seen',
+                forms: { isolated: 'س', initial: 'سـ', middle: 'ـسـ', final: 'ـس' },
+                connects: { initial: true, final: true }
+            },
+            {
+                letter: 'ش', name: 'Shīn', transliteration: 'sh', sound: 'sheen',
+                forms: { isolated: 'ش', initial: 'شـ', middle: 'ـشـ', final: 'ـش' },
+                connects: { initial: true, final: true }
+            },
+            {
+                letter: 'ص', name: 'Ṣād', transliteration: 'ṣ', sound: 'saad',
+                forms: { isolated: 'ص', initial: 'صـ', middle: 'ـصـ', final: 'ـص' },
+                connects: { initial: true, final: true }
+            },
+            {
+                letter: 'ض', name: 'Ḍād', transliteration: 'ḍ', sound: 'daad',
+                forms: { isolated: 'ض', initial: 'ضـ', middle: 'ـضـ', final: 'ـض' },
+                connects: { initial: true, final: true }
+            },
+            {
+                letter: 'ط', name: 'Ṭāʾ', transliteration: 'ṭ', sound: 'taa_emphatic',
+                forms: { isolated: 'ط', initial: 'طـ', middle: 'ـطـ', final: 'ـط' },
+                connects: { initial: true, final: true }
+            },
+            {
+                letter: 'ظ', name: 'Ẓāʾ', transliteration: 'ẓ', sound: 'zaa',
+                forms: { isolated: 'ظ', initial: 'ظـ', middle: 'ـظـ', final: 'ـظ' },
+                connects: { initial: true, final: true }
+            },
+            {
+                letter: 'ع', name: 'ʿAyn', transliteration: 'ʿ', sound: 'ayn',
+                forms: { isolated: 'ع', initial: 'عـ', middle: 'ـعـ', final: 'ـع' },
+                connects: { initial: true, final: true }
+            },
+            {
+                letter: 'غ', name: 'Ghayn', transliteration: 'gh', sound: 'ghayn',
+                forms: { isolated: 'غ', initial: 'غـ', middle: 'ـغـ', final: 'ـغ' },
+                connects: { initial: true, final: true }
+            },
+            {
+                letter: 'ف', name: 'Fāʾ', transliteration: 'f', sound: 'faa',
+                forms: { isolated: 'ف', initial: 'فـ', middle: 'ـفـ', final: 'ـف' },
+                connects: { initial: true, final: true }
+            },
+            {
+                letter: 'ق', name: 'Qāf', transliteration: 'q', sound: 'qaaf',
+                forms: { isolated: 'ق', initial: 'قـ', middle: 'ـقـ', final: 'ـق' },
+                connects: { initial: true, final: true }
+            },
+            {
+                letter: 'ك', name: 'Kāf', transliteration: 'k', sound: 'kaaf',
+                forms: { isolated: 'ك', initial: 'كـ', middle: 'ـكـ', final: 'ـك' },
+                connects: { initial: true, final: true }
+            },
+            {
+                letter: 'ل', name: 'Lām', transliteration: 'l', sound: 'laam',
+                forms: { isolated: 'ل', initial: 'لـ', middle: 'ـلـ', final: 'ـل' },
+                connects: { initial: true, final: true }
+            },
+            {
+                letter: 'م', name: 'Mīm', transliteration: 'm', sound: 'meem',
+                forms: { isolated: 'م', initial: 'مـ', middle: 'ـمـ', final: 'ـم' },
+                connects: { initial: true, final: true }
+            },
+            {
+                letter: 'ن', name: 'Nūn', transliteration: 'n', sound: 'noon',
+                forms: { isolated: 'ن', initial: 'نـ', middle: 'ـنـ', final: 'ـن' },
+                connects: { initial: true, final: true }
+            },
+            {
+                letter: 'ه', name: 'Hāʾ', transliteration: 'h', sound: 'haa_final',
+                forms: { isolated: 'ه', initial: 'هـ', middle: 'ـهـ', final: 'ـه' },
+                connects: { initial: true, final: true }
+            },
+            {
+                letter: 'و', name: 'Wāw', transliteration: 'w/ū', sound: 'waaw',
+                forms: { isolated: 'و', initial: 'و', middle: 'ـو', final: 'ـو' },
+                connects: { initial: false, final: true }
+            },
+            {
+                letter: 'ي', name: 'Yāʾ', transliteration: 'y/ī', sound: 'yaa',
+                forms: { isolated: 'ي', initial: 'يـ', middle: 'ـيـ', final: 'ـي' },
+                connects: { initial: true, final: true }
+            }
         ];
 
         let currentLetters = [...arabicLetters];
-        let currentIndex = 0;
-        let isPlayingAll = false;
-        let playAllTimeout = null;
+        let expandedCard = null;
 
         function createLetterCard(letterData, index) {
-            return `
-                <div class="letter-card" onclick="selectLetter(${index})" data-sound="${letterData.sound}">
-                    <div class="arabic-letter">${letterData.letter}</div>
-                    <div class="letter-name">${letterData.name}</div>
-                    <div class="transliteration">${letterData.transliteration}</div>
+            const formsHtml = `
+                <div class="forms-container">
+                    <div class="forms-grid">
+                        <div class="form-item">
+                            <div class="form-arabic">${letterData.forms.isolated}</div>
+                            <div class="form-label">Isolated</div>
+                        </div>
+                        <div class="form-item">
+                            <div class="form-arabic">${letterData.forms.initial}</div>
+                            <div class="form-label">Initial</div>
+                        </div>
+                        <div class="form-item">
+                            <div class="form-arabic">${letterData.forms.middle}</div>
+                            <div class="form-label">Middle</div>
+                        </div>
+                        <div class="form-item">
+                            <div class="form-arabic">${letterData.forms.final}</div>
+                            <div class="form-label">Final</div>
+                        </div>
+                    </div>
+                    <button class="audio-btn" onclick="playSound('${letterData.sound}', event)">🔊 Play Sound</button>
                 </div>
             `;
-        }
-
-        function renderAlphabet() {
-            const grid = document.getElementById('alphabetGrid');
-            grid.innerHTML = currentLetters.map((letter, index) => createLetterCard(letter, index)).join('');
-        }
-
-        function selectLetter(index) {
-            // Initialize audio on first user interaction (mobile requirement)
-            initializeAudio();
             
-            // Remove active class from all cards
-            document.querySelectorAll('.letter-card').forEach(card => card.classList.remove('active'));
-            
-            // Add active class to selected card
-            document.querySelectorAll('.letter-card')[index].classList.add('active');
-            
-            const letter = currentLetters[index];
-            currentIndex = index;
-            
-            // Play sound
-            playSound(letter.sound);
-        }
-
-        // Remove unused debug functions
-        let audioInitialized = false;
-        
-        function initializeAudio() {
-            if (!audioInitialized) {
-                try {
-                    // Create a silent audio context to unlock audio on mobile
-                    const audio = new Audio();
-                    audio.volume = 0;
-                    audio.play().then(() => {
-                        console.log('Audio context unlocked');
-                    }).catch(() => {
-                        console.log('Silent audio failed, but continuing...');
-                    });
-                    audioInitialized = true;
-                } catch (e) {
-                    console.log('Audio init error:', e.message);
-                }
-            }
-        }
-        
-        // Remove unused test function
-        
-        function playSound(soundFile) {
-            initializeAudio();
-            
-            try {
-                // Audio files are in the same directory on GitHub Pages
-                const audio = new Audio(`${soundFile}.mp3`);
-                audio.volume = 0.8;
-                
-                // Add error handling for missing audio files
-                audio.addEventListener('error', () => {
-                    console.log(`Audio file not found: ${soundFile}.mp3`);
-                    showSoundFeedback(soundFile); // Still show visual feedback
-                });
-                
-                const playPromise = audio.play();
-                
-                if (playPromise !== undefined) {
-                    playPromise.then(() => {
-                        console.log(`Playing: ${soundFile}.mp3`);
-                        showSoundFeedback(soundFile);
-                    }).catch(e => {
-                        console.log(`Audio play failed: ${e.message}`);
-                        showSoundFeedback(soundFile); // Show visual feedback even if audio fails
-                    });
-                } else {
-                    showSoundFeedback(soundFile);
-                }
-                
-            } catch (e) {
-                console.log(`Error creating audio: ${e.message}`);
-                showSoundFeedback(soundFile);
-            }
-        }
-
-        function showSoundFeedback(soundFile) {
-            // Visual feedback when audio would play
-            const cards = document.querySelectorAll('.letter-card');
-            const activeCard = document.querySelector('.letter-card.active');
-            if (activeCard) {
-                activeCard.style.transform = 'scale(1.1)';
-                setTimeout(() => {
-                    activeCard.style.transform = '';
-                }, 200);
-            }
-            console.log(`Would play sound: ${soundFile}.mp3`);
-        }
-
-        function togglePlayAll() {
-            const playBtn = document.getElementById('playAllBtn');
-            
-            if (isPlayingAll) {
-                // Stop playing
-                stopPlayAll();
-            } else {
-                // Start playing
-                startPlayAll();
-            }
-        }
-        
-        function startPlayAll() {
-            isPlayingAll = true;
-            const playBtn = document.getElementById('playAllBtn');
-            playBtn.textContent = '⏹️ Stop';
-            playBtn.classList.add('active');
-            
-            let index = 0;
-            function playNext() {
-                if (index < currentLetters.length && isPlayingAll) {
-                    selectLetter(index);
-                    index++;
-                    if (index < currentLetters.length && isPlayingAll) {
-                        playAllTimeout = setTimeout(playNext, 2000);
-                    } else {
-                        // Finished playing all letters
-                        stopPlayAll();
-                    }
-                }
-            }
-            playNext();
-        }
-        
-        function stopPlayAll() {
-            isPlayingAll = false;
-            if (playAllTimeout) {
-                clearTimeout(playAllTimeout);
-                playAllTimeout = null;
-            }
-            
-            const playBtn = document.getElementById('playAllBtn');
-            playBtn.textContent = '▶️ Play All';
-            playBtn.classList.remove('active');
-        }
-
-        function shuffleOrder() {
-            // Stop any ongoing playback
-            stopPlayAll();
-            
-            // Create a new shuffled array
-            currentLetters = [...arabicLetters].sort(() => Math.random() - 0.5);
-            renderAlphabet();
-            currentIndex = 0;
-        }
-
-        function resetOrder() {
-            // Stop any ongoing playback
-            stopPlayAll();
-            
-            // Reset to original order
-            currentLetters = [...arabicLetters];
-            renderAlphabet();
-            currentIndex = 0;
-        }
-
-        // Keyboard navigation
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'ArrowRight' || e.key === ' ') {
-                e.preventDefault();
-                if (!isPlayingAll) {
-                    currentIndex = (currentIndex + 1) % currentLetters.length;
-                    selectLetter(currentIndex);
-                }
-            } else if (e.key === 'ArrowLeft') {
-                e.preventDefault();
-                if (!isPlayingAll) {
-                    currentIndex = (currentIndex - 1 + currentLetters.length) % currentLetters.length;
-                    selectLetter(currentIndex);
-                }
-            } else if (e.key === 'Escape') {
-                e.preventDefault();
-                if (isPlayingAll) {
-                    stopPlayAll();
-                }
-            }
-        });
-
-        // Initialize
-        renderAlphabet();
-        
-        // Prevent default touch behaviors for app-like experience
-        document.addEventListener('touchstart', function(e) {
-            if (e.touches.length > 1) {
-                e.preventDefault(); // Prevent pinch zoom
-            }
-        }, { passive: false });
-        
-        document.addEventListener('touchmove', function(e) {
-            if (e.touches.length > 1) {
-                e.preventDefault(); // Prevent pinch zoom
-            }
-        }, { passive: false });
-        
-        // Prevent double-tap zoom
-        let lastTouchEnd = 0;
-        document.addEventListener('touchend', function(e) {
-            const now = (new Date()).getTime();
-            if (now - lastTouchEnd <= 300) {
-                e.preventDefault();
-            }
-            lastTouchEnd = now;
-        }, false);
-    </script>
-</body>
-</html>
+            return `
+                <div class="letter-card" onclick="toggleCard(${index})" data-sound="${letterData.sound}">
+                    <div class="arabic-letter">${letterData.letter}</div>
+                 
