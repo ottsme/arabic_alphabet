@@ -90,7 +90,6 @@
             min-height: 180px;
             z-index: 10;
         }
-        
         .arabic-letter {
             font-size: 2.5em;
             font-weight: bold;
@@ -262,7 +261,6 @@
                 min-width: 120px;
             }
         }
-        
         @media (max-width: 450px) {
             .container {
                 padding: 15px;
@@ -433,7 +431,7 @@
                 letter: 'ص', name: 'Ṣād', transliteration: 'ṣ', sound: 'saad',
                 forms: { isolated: 'ص', initial: 'صـ', middle: 'ـصـ', final: 'ـص' },
                 connects: { initial: true, final: true }
-            },
+            }
             {
                 letter: 'ض', name: 'Ḍād', transliteration: 'ḍ', sound: 'daad',
                 forms: { isolated: 'ض', initial: 'ضـ', middle: 'ـضـ', final: 'ـض' },
@@ -537,4 +535,144 @@
             return `
                 <div class="letter-card" onclick="toggleCard(${index})" data-sound="${letterData.sound}">
                     <div class="arabic-letter">${letterData.letter}</div>
-                 
+                    <div class="letter-name">${letterData.name}</div>
+                    <div class="transliteration">${letterData.transliteration}</div>
+                    ${formsHtml}
+                </div>
+            `;
+        }
+
+        function renderAlphabet() {
+            const grid = document.getElementById('alphabetGrid');
+            grid.innerHTML = currentLetters.map((letter, index) => createLetterCard(letter, index)).join('');
+        }
+
+        function toggleCard(index) {
+            const cards = document.querySelectorAll('.letter-card');
+            const clickedCard = cards[index];
+            
+            // Initialize audio on first user interaction
+            initializeAudio();
+            
+            if (expandedCard === index) {
+                // Collapse current card
+                clickedCard.classList.remove('expanded', 'active');
+                expandedCard = null;
+            } else {
+                // Collapse any previously expanded card
+                if (expandedCard !== null) {
+                    cards[expandedCard].classList.remove('expanded', 'active');
+                }
+                
+                // Expand clicked card
+                clickedCard.classList.add('expanded', 'active');
+                expandedCard = index;
+                
+                // Play sound
+                playSound(currentLetters[index].sound);
+            }
+        }
+
+        function collapseAll() {
+            document.querySelectorAll('.letter-card').forEach(card => {
+                card.classList.remove('expanded', 'active');
+            });
+            expandedCard = null;
+        }
+        let audioInitialized = false;
+        
+        function initializeAudio() {
+            if (!audioInitialized) {
+                try {
+                    const audio = new Audio();
+                    audio.volume = 0;
+                    audio.play().then(() => {
+                        console.log('Audio context unlocked');
+                    }).catch(() => {
+                        console.log('Silent audio failed, but continuing...');
+                    });
+                    audioInitialized = true;
+                } catch (e) {
+                    console.log('Audio init error:', e.message);
+                }
+            }
+        }
+        
+        function playSound(soundFile, event) {
+            if (event) {
+                event.stopPropagation(); // Prevent card toggle when clicking audio button
+            }
+            
+            initializeAudio();
+            
+            try {
+                const audio = new Audio(`${soundFile}.mp3`);
+                audio.volume = 0.8;
+                
+                audio.addEventListener('error', () => {
+                    console.log(`Audio file not found: ${soundFile}.mp3`);
+                });
+                
+                const playPromise = audio.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        console.log(`Playing: ${soundFile}.mp3`);
+                    }).catch(e => {
+                        console.log(`Audio play failed: ${e.message}`);
+                    });
+                }
+                
+            } catch (e) {
+                console.log(`Error creating audio: ${e.message}`);
+            }
+        }
+
+        function shuffleOrder() {
+            collapseAll();
+            currentLetters = [...arabicLetters].sort(() => Math.random() - 0.5);
+            renderAlphabet();
+        }
+
+        function resetOrder() {
+            collapseAll();
+            currentLetters = [...arabicLetters];
+            renderAlphabet();
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                e.preventDefault();
+                collapseAll();
+            }
+        });
+
+        // Initialize
+        renderAlphabet();
+        
+        // Prevent default touch behaviors for app-like experience
+        document.addEventListener('touchstart', function(e) {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+        
+        document.addEventListener('touchmove', function(e) {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+        
+        // Prevent double-tap zoom
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(e) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                e.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+    </script>
+</body>
+</html>
